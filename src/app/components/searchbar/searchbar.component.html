@@ -1,0 +1,22 @@
+<div>
+  <p class="text-gray-600 font-medium">
+    O también puede elegir una imágen de portada buscando una temática en
+    nuestro archivo de imágenes:
+  </p>
+  <div class="flex mt-4">
+    <input
+      [(ngModel)]="name"
+      class="block w-[300px] pl-2 rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"
+    />
+    <button
+      (click)="saveChanges()"
+      type="button"
+      class="bg-[#b9a973] px-6 py-3 text-white ml-2 rounded hover:bg-[#AD9E6A]"
+    >
+      Buscar
+    </button>
+  </div>
+  <div class="mt-2" *ngIf="alert && name.length < 1">
+    <p class="text-red-500">No hay ningún texto de búsqueda</p>
+  </div>
+</div>

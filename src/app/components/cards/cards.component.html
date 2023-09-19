@@ -1,0 +1,22 @@
+<div>
+  <p class="text-gray-600 font-medium mb-4" *ngIf="images.length > 1">
+    Resultados según su búsqueda:
+  </p>
+  <p class="text-gray-600 font-medium mb-4" *ngIf="images.length < 1">
+    No hay resultados
+  </p>
+  <div class="grid grid-cols-3 gap-4">
+    <ng-container *ngFor="let image of images">
+      <div>
+        <img
+          src="{{ image.webformatURL }}"
+          alt=""
+          class="w-full h-full object-cover"
+        />
+      </div>
+    </ng-container>
+  </div>
+  <p class="text-gray-600 font-medium mt-4 text-end" *ngIf="images.length > 1">
+    Imágenes cortesía de Pixabay
+  </p>
+</div>
