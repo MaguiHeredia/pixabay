@@ -7,7 +7,7 @@
   </p>
   <div class="grid grid-cols-3 gap-4">
     <ng-container *ngFor="let image of images">
-      <div>
+      <div (click)="saveImage(image.webformatURL)">
         <img
           src="{{ image.webformatURL }}"
           alt=""

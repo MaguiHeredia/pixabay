@@ -20,19 +20,23 @@ export class FrontPageComponent implements AfterViewInit {
     this.calculateImageDimensions();
   }
 
+  ngOnInit(): void {
+    this.ConnectApiService.frontImage.subscribe((valor: string) => {
+      this.image = valor; 
+    });
+  }
+
   calculateImageDimensions() {
     const container = this.imageContainer.nativeElement;
     this.imageWidth = container.offsetWidth;
     this.imageHeight = container.offsetHeight;
 
-    // Forzar una nueva verificación de cambios después de actualizar las dimensiones
     this.cdRef.detectChanges();
   }
 
   async getImage() {
     try {
       await this.ConnectApiService.getFrontPage();
-      this.image = this.ConnectApiService.frontImage;
     } catch (error) {
       console.error('Error al obtener la imagen', error);
     }

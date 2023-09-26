@@ -1,5 +1,5 @@
 import { Component, Input } from '@angular/core';
-import { Data} from '../../service/connect-api.service';
+import { Data, ConnectApiService} from '../../service/connect-api.service';
 @Component({
   selector: 'app-cards',
   templateUrl: './cards.component.html',
@@ -7,4 +7,8 @@ import { Data} from '../../service/connect-api.service';
 })
 export class CardsComponent {
   @Input() images: Data[] = [];
+  constructor(private ConnectApiService: ConnectApiService) {}
+  saveImage(url: string) : void {
+    this.ConnectApiService.changeFrontPage(url)
+  }
 }
